@@ -1,0 +1,5 @@
+TARGETNAME=DeleteFolder
+TARGETPATH=Debug
+TARGETTYPE=DRIVER
+
+SOURCES=DeleteFolder.c

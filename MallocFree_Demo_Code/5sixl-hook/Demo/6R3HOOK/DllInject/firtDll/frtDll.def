@@ -1,0 +1,3 @@
+LIBRARY firtDll
+EXPORTS
+fnFirtDll @ 1

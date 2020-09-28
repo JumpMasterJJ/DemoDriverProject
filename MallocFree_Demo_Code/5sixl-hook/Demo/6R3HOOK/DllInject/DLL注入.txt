@@ -1,0 +1,51 @@
+hookSpy InjectEx SetWindowHook（钩子注入）
+
+LibSpy CreateRemoteThread LoadLibrary(DLL文件注入）
+
+WinSpy CreateRemoteThread WriteProcessMemory（直接代码注入）
+
+//提升DEBUG权限
+
+BOOL AddDebugPrivilege(void)
+{
+
+TOKEN_PRIVILEGES tp;
+LUID luid;
+HANDLE hToken;
+
+if(!LookupPrivilegeValue(NULL,SE_DEBUG_NAME,&luid))
+{
+printf("LookupPrivilegeValue error\n");
+return FALSE;
+}
+
+tp.PrivilegeCount = 1;
+tp.Privileges[0].Luid=luid;
+tp.Privileges[0].Attributes=SE_PRIVILEGE_ENABLED;
+
+if(!OpenProcessToken(GetCurrentProcess(),
+TOKEN_ADJUST_PRIVILEGES,&hToken))
+{
+printf("OpenProcessToken Error\n");
+return FALSE;
+}
+
+if(!AdjustTokenPrivileges(hToken,FALSE,&tp,sizeof(TOKEN_PRIVILEGES),
+(PTOKEN_PRIVILEGES)NULL,(PDWORD)NULL))
+{
+printf("AdjustTokenPrivileges Error\n");
+return FALSE;
+}
+return TRUE;
+} 
+
+注入DLL文件：
+1。打开目标进程
+2。获取DLL路径，分配一块目标进程内的内存，将路径拷贝到该内存中
+3。获取kernel32中的LoadLibraryA地址
+4。调用CreateRemoteThread，在目标进程中执行loadlibrary + DLL的动作
+5。DLL中的DLLMAIN执行
+6。释放分配的目标进程中的内存
+7。获取kernel32中的FreeLibrary地址
+8。调用CreateRemoteThread，在目标进程中执行FreeLibrary + DLL的动作
+

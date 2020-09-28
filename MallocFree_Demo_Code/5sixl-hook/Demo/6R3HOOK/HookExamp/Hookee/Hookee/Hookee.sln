@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hookee", "Hookee.vcproj", "{E7511348-4251-4C53-97D2-06DC98154FE9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hookdll", "..\..\HookDll\ntengine\hookdll\hookdll.vcproj", "{39640B06-24B1-4DDB-BAFF-3F0914E68E51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7511348-4251-4C53-97D2-06DC98154FE9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E7511348-4251-4C53-97D2-06DC98154FE9}.Debug|Win32.Build.0 = Debug|Win32
+		{E7511348-4251-4C53-97D2-06DC98154FE9}.Release|Win32.ActiveCfg = Release|Win32
+		{E7511348-4251-4C53-97D2-06DC98154FE9}.Release|Win32.Build.0 = Release|Win32
+		{39640B06-24B1-4DDB-BAFF-3F0914E68E51}.Debug|Win32.ActiveCfg = Debug|Win32
+		{39640B06-24B1-4DDB-BAFF-3F0914E68E51}.Debug|Win32.Build.0 = Debug|Win32
+		{39640B06-24B1-4DDB-BAFF-3F0914E68E51}.Release|Win32.ActiveCfg = Release|Win32
+		{39640B06-24B1-4DDB-BAFF-3F0914E68E51}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
